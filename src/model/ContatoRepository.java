@@ -9,8 +9,7 @@ public class ContatoRepository {
     private List<Contato> contatos = new ArrayList<Contato>();
 
     public void salvar(Contato contato) {
-
-        //TODO: Validar todos os campos
+        validarContato(contato);
         contatos.add(contato);
     }
 
