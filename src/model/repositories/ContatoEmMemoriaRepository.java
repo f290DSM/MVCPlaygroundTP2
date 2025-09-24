@@ -1,6 +1,6 @@
 package model.repositories;
 
-import model.dao.Contato;
+import model.Contato;
 
 import java.util.ArrayList;
 import java.util.List;
