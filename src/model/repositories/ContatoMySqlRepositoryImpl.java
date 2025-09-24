@@ -1,13 +1,22 @@
 package model.repositories;
 
-import model.dao.Contato;
+import model.Contato;
+import model.dao.ContatoMySqlDAO;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public class ContatoMySqlRepositoryImpl implements IContatoRepository {
-    @Override
-    public void salvar(Contato contato) {
 
+    final ContatoMySqlDAO dao;
+
+    public ContatoMySqlRepositoryImpl(ContatoMySqlDAO dao) {
+        this.dao = dao;
+    }
+
+    @Override
+    public void salvar(Contato contato) throws Exception {
+        dao.salvar(contato);
     }
 
     @Override
@@ -17,7 +26,7 @@ public class ContatoMySqlRepositoryImpl implements IContatoRepository {
 
     @Override
     public List<Contato> getContatos() {
-        return List.of();
+        return dao.getContatos();
     }
 
     @Override

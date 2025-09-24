@@ -1,11 +1,11 @@
 package model.repositories;
 
-import model.dao.Contato;
+import model.Contato;
 
 import java.util.List;
 
 public interface IContatoRepository {
-    void salvar(Contato contato);
+    void salvar(Contato contato) throws Exception;
 
     void remover(Contato contato);
 

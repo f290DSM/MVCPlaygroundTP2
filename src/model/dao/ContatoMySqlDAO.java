@@ -40,7 +40,7 @@ public class ContatoMySqlDAO {
         }
     }
 
-    public List<Contato> getContatos() throws SQLException {
+    public List<Contato> getContatos() {
         List<Contato> contatos = new ArrayList<>();
         String sql = "SELECT id, nome, email, telefone FROM contatos;";
 
