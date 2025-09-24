@@ -3,7 +3,6 @@ package model.repositories;
 import model.Contato;
 import model.dao.ContatoMySqlDAO;
 
-import java.sql.SQLException;
 import java.util.List;
 
 public class ContatoMySqlRepositoryImpl implements IContatoRepository {
@@ -21,7 +20,7 @@ public class ContatoMySqlRepositoryImpl implements IContatoRepository {
 
     @Override
     public void remover(Contato contato) {
-
+        //TODO:Incluir remoção
     }
 
     @Override
@@ -31,11 +30,13 @@ public class ContatoMySqlRepositoryImpl implements IContatoRepository {
 
     @Override
     public Contato buscarContatoPorEmail(String email) {
+        //TODO: Concluir metodo de busca por e-mail
         return null;
     }
 
     @Override
     public Contato atualizar(Contato contato) {
+        //TODO: Concluir atualizacao de contato
         return null;
     }
 }
