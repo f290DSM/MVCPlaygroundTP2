@@ -2,7 +2,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import model.ConexaoFactory;
+import model.dao.ConexaoFactory;
 
 public class Main {
     public static void main(String[] args) throws SQLException {

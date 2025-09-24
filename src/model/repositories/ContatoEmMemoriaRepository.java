@@ -1,18 +1,20 @@
-package model;
+package model.repositories;
 
 import model.dao.Contato;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ContatoRepository {
+public class ContatoEmMemoriaRepository implements IContatoRepository {
     private List<Contato> contatos = new ArrayList<Contato>();
 
+    @Override
     public void salvar(Contato contato) {
         validarContato(contato);
         contatos.add(contato);
     }
 
+    @Override
     public void remover(Contato contato) {
         if (contato == null) {
             throw new RuntimeException("Contato não pode ser nulo.");
@@ -24,10 +26,12 @@ public class ContatoRepository {
         contatos.remove(contato);
     }
 
+    @Override
     public List<Contato> getContatos() {
         return contatos;
     }
 
+    @Override
     public Contato buscarContatoPorEmail(String email) {
         for (Contato contato : contatos) {
             if (contato.getEmail().equals(email)) {
@@ -37,6 +41,7 @@ public class ContatoRepository {
         return null;
     }
 
+    @Override
     public Contato atualizar(Contato contato) {
         Contato c = buscarContatoPorEmail(contato.getEmail());
         if (c != null) {

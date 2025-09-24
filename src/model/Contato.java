@@ -1,4 +1,4 @@
-package model.dao;
+package model;
 
 import java.util.Objects;
 
