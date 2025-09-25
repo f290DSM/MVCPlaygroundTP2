@@ -46,7 +46,7 @@ public class ContatoMySqlDAO {
 
         try (Statement stm = connection.createStatement();
              ResultSet rst = stm.executeQuery(sql)) {
-            while(rst.next()) {
+            while (rst.next()) {
                 Contato contato = new Contato(
                         rst.getInt("id"),
                         rst.getString("nome"),
@@ -60,5 +60,25 @@ public class ContatoMySqlDAO {
         }
 
         return contatos;
+    }
+
+    public void atualizarTabelas() throws SQLException {
+        criarTabelaContatos();
+    }
+
+    private void criarTabelaContatos() throws SQLException {
+        final String sql = "create table if not exists contatos(" +
+                "id integer primary key auto_increment, " +
+                "nome varchar(100) not null, "
+                + "email varchar(100) not null, "
+                + "telefone varchar(100) not null);";
+
+        try (Statement stm = connection.createStatement()) {
+            logger.info(sql);
+            stm.execute(sql);
+        } catch (SQLException e) {
+            logger.log(Level.SEVERE, "Falha ao salvar contato.", e);
+            throw e;
+        }
     }
 }
