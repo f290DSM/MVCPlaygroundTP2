@@ -3,17 +3,15 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import model.dao.ConexaoFactory;
+import model.dao.ContatoMySqlDAO;
 
 public class Main {
     public static void main(String[] args) throws SQLException {
-        Connection conexao = ConexaoFactory.getConexao();
-        
-        ResultSet rst = conexao.createStatement()
-                .executeQuery("select version() as v;");
+        configurarBanco();
+    }
 
-        if (rst.next()) {
-            System.out.println(rst.getString("v"));
-        }
-
+    private static void configurarBanco() throws SQLException {
+        ContatoMySqlDAO dao = new ContatoMySqlDAO(ConexaoFactory.getConexao());
+        dao.atualizarTabelas();
     }
 }
